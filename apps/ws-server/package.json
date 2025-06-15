@@ -4,12 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":"tsc -b && node ./dist/index.js"
+    "dev": "tsc -b && node ./dist/index.js"
   },
   "devDependencies": {
-    "@repo/typescript-config":"workspace:*"
+    "@repo/typescript-config": "workspace:*",
+    "@repo/backend-common":"workspace:*",
+    "@repo/db":"workspace:*"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/ws": "^8.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "ws": "^8.18.2"
+  }
 }

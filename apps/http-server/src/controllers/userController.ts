@@ -8,21 +8,31 @@ import jwt, { JwtPayload } from "jsonwebtoken"
 
 
 const createUser = async(req:Request,res:Response)=>{
-    const data  = User.safeParse(req.body);
-    if(!data){
-        throw new Error("please fill all the fields")
+    
+    const data = User.safeParse(req.body);
+    if(!data.success){
+        res.status(400).json({
+            message: "Invalid input data",
+            errors: data.error.errors
+        });
+        return
     }
-    if (!data.data?.password) {
-        throw new Error("Password is required");
+
+    const salt = (await bcrypt.genSalt(11)).toString()
+    const password = data.data?.password
+    if (typeof password !== "string") {
+        res.status(400).json({
+            message: "Password is required"
+        })
+        return
     }
-    const salt = await bcrypt.genSalt(11)
-    const hashpassword = await bcrypt.hash(data.data.password.toString(), salt)
+    const hashpassword = await bcrypt.hash(password, salt)
 
     try {
         const user = await prismaClient.user.create({
             data:{
-                username: data.data.username,
-                name: data.data.name,
+                username: data.data!.username.toString(),
+                name: data.data!.name.toString(),
                 password: hashpassword
             }
         })
@@ -135,4 +145,4 @@ const slug = async(req:Request,res:Response) => {
     })
 }
 
-export {createUser,signin,room,slug,draw};
+export  {createUser,signin,room,slug,draw};
