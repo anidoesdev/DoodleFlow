@@ -7,9 +7,10 @@ import { WS_URL } from "@/app/config"
 
 export function RoomCanvas({roomId}:{roomId: string}){
     const [socket,setSocket] = useState<WebSocket | null>(null)
+    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
 
     useEffect(()=>{
-        const ws = new WebSocket(`${WS_URL}?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3ZTQ5MDhlYS1hZDVhLTQ1ZTItOWJkZS0xNmVmNjc4NTRhMWUiLCJpYXQiOjE3NDk4OTQxMDN9.yeGo65m1M9O_0vXF7_XYzSMkCYrrYsehprz79VboK6s`)
+        const ws = new WebSocket(`${WS_URL}?token=${token}`)
 
         ws.onopen = () =>{
             setSocket(ws);
