@@ -1,7 +1,7 @@
 
-# SketchFlow - An Excalidraw Clone
+# DoodleFlow - An Excalidraw Clone
 
-**SketchFlow** is a web-based whiteboard application that replicates the functionality of [Excalidraw](https://excalidraw.com). It enables users to create freehand diagrams collaboratively in real time with a sleek and intuitive UI.
+**DoodleFlow** is a web-base application that replicates the functionality of [Excalidraw](https://excalidraw.com). It enables users to create freehand diagrams collaboratively in real time with a sleek and intuitive UI.
 
 ## Features
 
