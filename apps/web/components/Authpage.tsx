@@ -6,6 +6,7 @@ import { useState } from "react";
 import useAuth from "@/hooks/useAuth";
 import axios from "axios";
 import { BACKEND_URL } from "@/app/config";
+import { Palette } from "lucide-react";
 
 const leftPanelContent = [
   {
@@ -158,9 +159,9 @@ export default function AuthPage() {
         <div className="absolute top-8 left-8 flex items-center gap-3">
           <div className="bg-white/10 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center 
           border border-white/20 shadow-lg">
-            <span className="text-white font-bold text-2xl">Ex</span>
+            <span className="text-white font-bold text-2xl"><Palette className="h-6 w-6 text-white" /></span>
           </div>
-          <span className="font-bold text-xl text-white tracking-tight">Excalidraw</span>
+          <span className="font-bold text-xl text-white tracking-tight">DoodleFlow</span>
         </div>
         <div className="text-center max-w-sm">
           <h2 className="text-4xl font-bold mb-4 mt-16 text-white tracking-tight">{leftPanelContent[idx].title}</h2>
