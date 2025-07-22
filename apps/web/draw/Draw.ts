@@ -6,7 +6,8 @@ type Shapes = {
     x: number,
     y: number,
     width: number,
-    height: number
+    height: number,
+    radius: number
 } |
 {
     type: "circle",
@@ -102,7 +103,9 @@ export class Draw {
         this.existingShapes.map((shape)=>{
             this.ctx.strokeStyle = "rgba(255,255,255)"
             if(shape.type === 'rect'){
-                this.ctx.strokeRect(shape.x + this.panX, shape.y + this.panY, shape.width, shape.height)
+                this.ctx.beginPath()
+                this.ctx.roundRect(shape.x + this.panX, shape.y + this.panY, shape.width, shape.height,10)
+                this.ctx.stroke()
             }else if(shape.type === "circle"){
                 this.ctx.beginPath();
                 this.ctx.arc(shape.x + this.panX, shape.y + this.panY, Math.abs(shape.radius),0,Math.PI*2)
@@ -165,7 +168,8 @@ export class Draw {
                 x: this.startX,
                 y: this.startY,
                 width,
-                height
+                height,
+                radius: 10,
             }
         } else if (selectedTool === 'circle') {
             const radius = Math.max(width,height) / 2
@@ -230,7 +234,9 @@ export class Draw {
             this.ctx.strokeStyle = "rgba(255,255,255)";
             const selectedTool = this.selectedTool;
             if(selectedTool==="rect"){
-                this.ctx.strokeRect(this.startX + this.panX, this.startY + this.panY, width, height);
+                this.ctx.beginPath()
+                this.ctx.roundRect(this.startX + this.panX, this.startY + this.panY, width, height,10);
+                this.ctx.stroke()
             } else if(selectedTool==="circle"){
                 const radius = Math.max(width, height) / 2;
                 const centerX = this.startX + radius + this.panX;
