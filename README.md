@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 # Excalidraw Clone
 
 A real-time collaborative drawing application built with Next.js, Express.js, WebSocket, and PostgreSQL.
@@ -150,6 +151,11 @@ The application uses Prisma with PostgreSQL. To set up the database:
 1. Install Prisma CLI: `pnpm add -g prisma`
 2. Generate Prisma client: `pnpm prisma generate`
 3. Run migrations: `pnpm prisma db push`
+=======
+# DoodleFlow - An Excalidraw Clone
+
+**DoodleFlow** is a web-base application that replicates the functionality of [Excalidraw](https://excalidraw.com). It enables users to create freehand diagrams collaboratively in real time with a sleek and intuitive UI.
+>>>>>>> fa21edb1817b72db8a8f28b8c7c6dde2eb73703f
 
 ## Features
 
