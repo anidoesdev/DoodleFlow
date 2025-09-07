@@ -63,7 +63,6 @@ A real-time collaborative drawing application built with Next.js, Express.js, We
 # DoodleFlow - An Excalidraw Clone
 
 **DoodleFlow** is a web-base application that replicates the functionality of [Excalidraw](https://excalidraw.com). It enables users to create freehand diagrams collaboratively in real time with a sleek and intuitive UI.
->>>>>>> fa21edb1817b72db8a8f28b8c7c6dde2eb73703f
 
 ## Features
 
